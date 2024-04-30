@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_flutter_app/pigeon/messages.g.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final AndroidHostApi _hostApi = AndroidHostApi();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 100),
             ElevatedButton(
                 onPressed: () {
-
+                  _hostApi.openFragment("Hello world!");
                 },
                 child: const Text(
                   'Open Library Activity',
