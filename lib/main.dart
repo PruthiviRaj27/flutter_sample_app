@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,7 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final MethodChannel _channel = const MethodChannel('android_library');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const SizedBox(height: 100),
             ElevatedButton(
                 onPressed: () {
-                  _openAndroidActivity();
+
                 },
                 child: const Text(
                   'Open Library Activity',
@@ -58,14 +56,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     );
-  }
-
-  void _openAndroidActivity() async {
-    try {
-      _channel.invokeMethod('openAndroidActivity');
-    } on PlatformException catch (e) {
-      print("Failed to open Android Activity: '${e.message}'.");
-    }
   }
 
 }
